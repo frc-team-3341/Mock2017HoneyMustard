@@ -18,8 +18,8 @@ public:
 	void setSpeedRight(double speed);
 	void InitDefaultCommand();
 private:
-	CANTalon* left;
-	CANTalon* right;
+	Talon* left;
+	Talon* right;
 	float mult;
 	int ticksToDistance;
 };

@@ -3,13 +3,14 @@
 using namespace frc;
 
 OI::OI() :
-		LeftStick(new Joystick(0)), RightStick(new Joystick(1)), Arm(new Joystick(2)) {}
-Joystick* OI::getDriveStickLeft() {
-	return LeftStick;
+		//LeftStick(new Joystick(0)), RightStick(new Joystick(1))
+				logitech(new Joystick(0)), Arm(new Joystick(2)) {}
+double OI::getDriveStickLeft() {
+	return logitech->GetY();
 }
 
-Joystick* OI::getDriveStickRight() {
-	return RightStick;
+double OI::getDriveStickRight() {
+	return logitech->GetZ();
 }
 
 Joystick* OI::getArm() {
@@ -17,9 +18,8 @@ Joystick* OI::getArm() {
 }
 
 OI::~OI() {
-	delete LeftStick;
-	delete RightStick;
+	//delete LeftStick;
+	//delete RightStick;
+	delete logitech;
 	delete Arm;
 }
-
-

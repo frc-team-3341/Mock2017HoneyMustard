@@ -8,7 +8,7 @@
 
 #define max(x, y) (((x) > (y)) ? (x) : (y))
 
-DriveTrain::DriveTrain() : Subsystem("DriveTrain"), left(new CANTalon(0)), right(new CANTalon(1)), mult(1.0), ticksToDistance(114)
+DriveTrain::DriveTrain() : Subsystem("DriveTrain"), left(new Talon(0)), right(new Talon(1)), mult(1.0), ticksToDistance(114)
 {
 
 }

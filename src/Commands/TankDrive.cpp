@@ -1,19 +1,22 @@
 #include "TankDrive.h"
-
+using namespace std;
 TankDrive::TankDrive() : isReset(true) {
 	Requires(drive);
 }
 
 void TankDrive::Initialize() {}
 
-void TankDrive::Execute()
-{
-	double LeftVal = oi->getDriveStickLeft()->GetY();
-	double RightVal = oi->getDriveStickRight()->GetY();
 
+void TankDrive::Execute() {
+	//double LeftVal = oi->getDriveStickLeft()->GetY();
+	//double RightVal = oi->getDriveStickRight()->GetY();
+	double LeftVal = oi->getDriveStickLeft();
+	double RightVal = oi->getDriveStickRight();
+	//cout<<"leftVal: "<<LeftVal<<endl;
+	//cout<<"rightVal: "<<RightVal<<endl;
 	double LeftAdjusted = mapToCubic(0.3, 0, LeftVal);
 	double RightAdjusted = mapToCubic(0.3, 0, RightVal);
-
+	//frc::SmartDashBoard::PutNumber("left value", LeftVal);
 	drive->tankDrive(LeftAdjusted, RightAdjusted);
 }
 
