@@ -10,8 +10,10 @@ void TankDrive::Initialize() {
 }
 
 void TankDrive::Execute() {
-	double LeftVal = oi->getDriveStickLeft()->GetY();
-	double RightVal = oi->getDriveStickRight()->GetY();
+	//double LeftVal = oi->getDriveStickLeft()->GetY();
+	//double RightVal = oi->getDriveStickRight()->GetY();
+	double LeftVal = oi->getDriveStickLeft();
+	double RightVal = oi->getDriveStickRight();
 
 	double LeftAdjusted = mapToCubic(0.3, 0, LeftVal);
 	double RightAdjusted = mapToCubic(0.3, 0, RightVal);

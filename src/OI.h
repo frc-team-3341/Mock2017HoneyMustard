@@ -6,15 +6,18 @@
 
 class OI {
 private:
-	Joystick* LeftStick;
-	Joystick* RightStick;
+	Joystick* logitech;
+	//Joystick* LeftStick;
+	//Joystick* RightStick;
 	Joystick* Arm;
 
 public:
 	OI();
 	~OI();
-	Joystick* getDriveStickLeft();
-	Joystick* getDriveStickRight();
+	//Joystick* getDriveStickLeft();
+	//Joystick* getDriveStickRight();
+	double getDriveStickLeft();
+	double getDriveStickRight();
 	Joystick* getArm();
 };
 
