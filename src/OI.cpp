@@ -6,11 +6,11 @@ OI::OI() :
 		//LeftStick(new Joystick(0)), RightStick(new Joystick(1))
 				logitech(new Joystick(0)), Arm(new Joystick(2)) {}
 double OI::getDriveStickLeft() {
-	return logitech->GetRawAxis(2);
+	return logitech->GetY();
 }
 
 double OI::getDriveStickRight() {
-	return logitech->GetRawAxis(5);
+	return logitech->GetZ();
 }
 
 Joystick* OI::getArm() {
@@ -23,5 +23,3 @@ OI::~OI() {
 	delete logitech;
 	delete Arm;
 }
-
-
