@@ -1,13 +1,13 @@
 #ifndef DriveTrain_H
 #define DriveTrain_H
-#include <CANTalon.h>
+#include <ctrlib/CANTalon.h>
 #include <WPILib.h>
 #include "Commands/Subsystem.h"
 class DriveTrain: public Subsystem {
 private:
 
-	TalonSRX* left;
-	TalonSRX* right;
+	CANTalon* left;
+	CANTalon* right;
 	Encoder* encoderLeft;
 	Encoder* encoderRight;
 	float mult;

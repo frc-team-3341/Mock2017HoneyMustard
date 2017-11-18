@@ -4,7 +4,6 @@
  */
 
 #include <math.h>
-#include <CANTalon.h>
 #include "../RobotMap.h"
 #include "../CommandBase.h"
 #include "../Commands/TankDrive.h"
@@ -102,10 +101,10 @@ double DriveTrain::getRightEncoderDistance() {
 }
 
 void DriveTrain::setSpeedLeft(double speed) {
-	left->SetSpeed(speed * mult);
+	left->Set(speed * mult);
 }
 
 void DriveTrain::setSpeedRight(double speed) {
-	right->SetSpeed(speed * mult);
+	right->Set(speed * mult);
 }
 

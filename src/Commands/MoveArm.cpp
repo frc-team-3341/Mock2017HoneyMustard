@@ -14,14 +14,14 @@ void MoveArm::Initialize() {
 void MoveArm::Execute() {
 	double ArmVal = oi->getArm()->GetY();
 
-		double ArmAdjusted = ArmFun(0.3, 0, ArmVal);
+//		double ArmAdjusted = ArmFun(0.3, 0, ArmVal);
 
-		drive->tankDrive(ArmAdjusted);
+		//drive->tankDrive(ArmAdjusted);
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-double MoveArm::ArmVal(double a, double b, double signal){
+/* double MoveArm::ArmVal(double a, double b, double signal){
 
 	double control;
 
@@ -33,6 +33,7 @@ double MoveArm::ArmVal(double a, double b, double signal){
 		return control;
 
 }
+*/
 
 bool MoveArm::IsFinished() {
 	return false;
@@ -45,4 +46,6 @@ void MoveArm::End() {
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void MoveArm::Interrupted() {
+void MoveArm::Interrupted()
+{
+}

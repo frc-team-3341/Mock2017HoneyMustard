@@ -15,9 +15,7 @@ Joystick* OI::getDriveStickRight() {
 Joystick* OI::getArm() {
 	return Arm;
 }
-void OI::driveButtons() {
-	Button* toggleArmDirection = new JoystickButton(Arm, 2);
-}
+
 OI::~OI() {
 	delete LeftStick;
 	delete RightStick;
