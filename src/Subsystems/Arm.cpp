@@ -36,6 +36,7 @@ void Arm::pushArmOut()
 	// basically leave it static
 }
 
+/*
 void Arm::ArmToCubic(float arm)
 {
 		moveValueRight = -DriveTrain::Limit(moveValueRight, 1.0);
@@ -47,5 +48,6 @@ void Arm::ArmToCubic(float arm)
 			right->Set(moveValueRight);
 		}
 }
+*/
 
 
