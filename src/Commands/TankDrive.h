@@ -1,5 +1,3 @@
-
-
 #ifndef TankDrive_H
 #define TankDrive_H
 
@@ -9,7 +7,8 @@
 #include "WPILib.h"
 //#include "something else"
 
-class TankDrive: public CommandBase {
+class TankDrive: public CommandBase
+{
 public:
 	TankDrive();
 	void Initialize();

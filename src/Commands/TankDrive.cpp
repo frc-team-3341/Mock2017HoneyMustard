@@ -1,15 +1,13 @@
 #include "TankDrive.h"
 
-TankDrive::TankDrive() :
-		isReset(true) {
+TankDrive::TankDrive() : isReset(true) {
 	Requires(drive);
 }
 
-void TankDrive::Initialize() {
+void TankDrive::Initialize() {}
 
-}
-
-void TankDrive::Execute() {
+void TankDrive::Execute()
+{
 	double LeftVal = oi->getDriveStickLeft()->GetY();
 	double RightVal = oi->getDriveStickRight()->GetY();
 
@@ -20,7 +18,8 @@ void TankDrive::Execute() {
 }
 
 // Takes an input signal and maps it to a cubic output
-double TankDrive::mapToCubic(double a, double b, double signal) {
+double TankDrive::mapToCubic(double a, double b, double signal)
+{
 	double control;
 
 	if (signal > 0)
@@ -33,12 +32,11 @@ double TankDrive::mapToCubic(double a, double b, double signal) {
 //Is this fine? -david hang
 }
 
-bool TankDrive::IsFinished() {
+bool TankDrive::IsFinished()
+{
 	return false;
 }
 
-void TankDrive::End() {
-}
+void TankDrive::End() {}
 
-void TankDrive::Interrupted() {
-}
+void TankDrive::Interrupted() {}
