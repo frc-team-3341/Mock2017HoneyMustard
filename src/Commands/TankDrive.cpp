@@ -12,8 +12,8 @@ void TankDrive::Execute() {
 	//double RightVal = oi->getDriveStickRight()->GetY();
 	double LeftVal = oi->getDriveStickLeft();
 	double RightVal = oi->getDriveStickRight();
-	//cout<<"leftVal: "<<LeftVal<<endl;
-	//cout<<"rightVal: "<<RightVal<<endl;
+	cout<<"leftVal: "<<LeftVal<<endl;
+	cout<<"rightVal: "<<RightVal<<endl;
 	double LeftAdjusted = mapToCubic(0.3, 0, LeftVal);
 	double RightAdjusted = mapToCubic(0.3, 0, RightVal);
 	//frc::SmartDashBoard::PutNumber("left value", LeftVal);

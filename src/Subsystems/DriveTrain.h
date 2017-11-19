@@ -1,6 +1,6 @@
 #ifndef DriveTrain_H
 #define DriveTrain_H
-#include <ctrlib/CANTalon.h>
+#include <CANTalon.h>
 #include <WPILib.h>
 #include "Commands/Subsystem.h"
 

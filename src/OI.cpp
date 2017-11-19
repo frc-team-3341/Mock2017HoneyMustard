@@ -10,7 +10,7 @@ double OI::getDriveStickLeft() {
 }
 
 double OI::getDriveStickRight() {
-	return logitech->GetZ();
+	return logitech->GetRawAxis(3);
 }
 
 Joystick* OI::getArm() {
