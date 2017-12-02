@@ -10,6 +10,8 @@ private:
 	//Joystick* LeftStick;
 	//Joystick* RightStick;
 	Joystick* Arm;
+	Button* pushArm;
+	Button* pullArm;
 
 public:
 	OI();

@@ -8,13 +8,15 @@
 
 #define max(x, y) (((x) > (y)) ? (x) : (y))
 
-DriveTrain::DriveTrain() : Subsystem("DriveTrain"), left(new Talon(0)), right(new Talon(1)), mult(1.0), ticksToDistance(114)
+DriveTrain::DriveTrain() : Subsystem("DriveTrain"), left(new Talon(DRIVE_MOTOR_LEFT)),
+right(new Talon(DRIVE_MOTOR_RIGHT)), mult(1.0), ticksToDistance(114), testDrive(new RobotDrive(left, right))
 {
 
 }
 
 DriveTrain::~DriveTrain()
 {
+	delete testDrive;
 	delete left;
 	delete right;
 }
@@ -47,6 +49,8 @@ void DriveTrain::tankDrive(float moveValueLeft, float moveValueRight)
 		left->Set(moveValueLeft);
 		right->Set(moveValueRight);
 	}
+
+	//testDrive->TankDrive(moveValueLeft, moveValueRight);
 }
 
 float DriveTrain::Limit(float num, float max)
@@ -73,4 +77,9 @@ void DriveTrain::setSpeedLeft(double speed)
 void DriveTrain::setSpeedRight(double speed)
 {
 	right->Set(speed * mult);
+}
+
+void DriveTrain::arcadeDrive(double moveValue, double rotateValue)
+{
+	testDrive->Drive(moveValue, rotateValue);
 }

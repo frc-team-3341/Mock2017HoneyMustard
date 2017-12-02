@@ -1,7 +1,7 @@
 #include <memory>
 
 #include <Commands/Command.h>
-#include <Commands/MoveArm.h>
+#include <Commands/MoveArmVertical.h>
 #include <Commands/Scheduler.h>
 #include <IterativeRobot.h>
 #include <LiveWindow/LiveWindow.h>

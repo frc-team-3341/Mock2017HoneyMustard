@@ -17,11 +17,14 @@ public:
 	void setSpeedLeft(double speed);
 	void setSpeedRight(double speed);
 	void InitDefaultCommand();
+	void arcadeDrive(double moveValue, double rotateValue);
+
 private:
 	Talon* left;
 	Talon* right;
 	float mult;
 	int ticksToDistance;
+	RobotDrive* testDrive;
 };
 
 #endif

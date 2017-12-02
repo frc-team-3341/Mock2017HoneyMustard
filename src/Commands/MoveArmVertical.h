@@ -3,12 +3,11 @@
 
 #include "../CommandBase.h"
 
-class MoveArm : public CommandBase {
+class MoveArmVertical : public CommandBase {
 public:
-	MoveArm();
+	MoveArmVertical();
 	void Initialize();
 	void Execute();
-	double ArmFun(double a, double b, double signal);
 	bool IsFinished();
 	void End();
 	void Interrupted();

@@ -7,6 +7,7 @@
 #include <Commands/Command.h>
 #include "OI.h"
 #include "Subsystems/DriveTrain.h"
+#include "Subsystems/Arm.h"
 
 
 class CommandBase: public frc::Command {
@@ -15,7 +16,7 @@ public:
 	CommandBase() = default;
 
 	static DriveTrain* drive;
-
+	static Arm* arm;
 	static std::unique_ptr<OI> oi;
 	static void initialize();
 

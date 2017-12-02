@@ -12,7 +12,7 @@ using namespace frc;
 //std::unique_ptr<ExampleSubsystem> CommandBase::exampleSubsystem =
 //		std::make_unique<ExampleSubsystem>();
 DriveTrain* CommandBase::drive = nullptr;
-
+Arm* CommandBase::arm = nullptr;
 std::unique_ptr<OI> CommandBase::oi;
 
 CommandBase::CommandBase(const std::string &name) :
@@ -25,5 +25,6 @@ CommandBase::CommandBase(const std::string &name) :
  */
 void CommandBase::initialize() {
 	drive = new DriveTrain();
+	arm = new Arm();
 	oi = std::make_unique<OI>();
 }
