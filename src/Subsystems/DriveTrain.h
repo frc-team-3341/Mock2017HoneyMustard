@@ -4,7 +4,7 @@
 #include <WPILib.h>
 #include "Commands/Subsystem.h"
 
-class DriveTrain: public Subsystem
+class DriveTrain: public PIDSubsystem
 {
 public:
 	DriveTrain();
@@ -18,13 +18,21 @@ public:
 	void setSpeedRight(double speed);
 	void InitDefaultCommand();
 	void arcadeDrive(double moveValue, double rotateValue);
-
+	double getDistance();
+	double getRate();
+	void resetEncoders();
+	double getRightEncoderDistance();
+	double getLeftEncoderDistance();
+	double ReturnPIDInput();
+	void UsePIDOutput(double output);
 private:
 	Talon* left;
 	Talon* right;
 	float mult;
 	int ticksToDistance;
 	RobotDrive* testDrive;
+	Encoder* encoderLeft;
+	Encoder* encoderRight;
 };
 
 #endif

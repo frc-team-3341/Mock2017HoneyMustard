@@ -7,7 +7,7 @@
 #include <LiveWindow/LiveWindow.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
-
+#include <Commands/TotalAutonomous.h>
 #include "CommandBase.h"
 
 class Robot: public frc::IterativeRobot {
@@ -82,7 +82,7 @@ public:
 	}
 
 private:
-	std::unique_ptr<frc::Command> autonomousCommand;
+	TotalAutonomous* autonomousCommand;
 	frc::SendableChooser<frc::Command*> chooser;
 };
 

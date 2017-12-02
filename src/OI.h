@@ -10,6 +10,11 @@ private:
 	//Joystick* LeftStick;
 	//Joystick* RightStick;
 	Joystick* Arm;
+	/*
+	 * TODO
+	 * from Nir
+	 * We should try to implement this functionality on the logitech controller as well.
+	 */
 	Button* pushArm;
 	Button* pullArm;
 
