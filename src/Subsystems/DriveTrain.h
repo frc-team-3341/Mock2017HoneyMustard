@@ -26,8 +26,8 @@ public:
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
 private:
-	Talon* left;
-	Talon* right;
+	CANTalon* left;
+	CANTalon* right;
 	float mult;
 	int ticksToDistance;
 	RobotDrive* testDrive;

@@ -8,22 +8,14 @@
 
 #define max(x, y) (((x) > (y)) ? (x) : (y))
 
-DriveTrain::DriveTrain() : PIDSubsystem("DriveTrain",1.0,0,0), left(new Talon(DRIVE_MOTOR_LEFT)),
-right(new Talon(DRIVE_MOTOR_RIGHT)), mult(1.0), ticksToDistance(114), testDrive(new RobotDrive(left, right)),
+DriveTrain::DriveTrain() : PIDSubsystem("DriveTrain",1.0,0,0), left(new CANTalon(DRIVE_MOTOR_LEFT)),
+right(new CANTalon(DRIVE_MOTOR_RIGHT)), mult(1.0), ticksToDistance(114), testDrive(new RobotDrive(left, right)),
 encoderLeft(new Encoder(0,1)),
-    encoderRight(new Encoder(2,3)),//random channels, change if necessary
+    encoderRight(new Encoder(2,3))//random channels, change if necessary
 //make our own subclasses to inherit these functions!
-PIDSubsystem("DriveTrain",1.0,0,0)
 {
 	encoderLeft->SetDistancePerPulse(1.0);
 	encoderRight->SetDistancePerPulse(1.0);
-	if(DriverStation::GetInstance().IsAutonomous()) {
-		this->SetAbsoluteTolerance(0.05);
-		this->Enable();
-	}
-	else {
-		this->Disable();
-	}
 }
 
 DriveTrain::~DriveTrain()

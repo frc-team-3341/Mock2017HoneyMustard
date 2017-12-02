@@ -3,6 +3,7 @@
 DrivePID::DrivePID() {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
+	Requires(drive);
 }
 
 // Called just before this Command runs the first time

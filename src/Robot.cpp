@@ -7,14 +7,16 @@
 #include <LiveWindow/LiveWindow.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
-#include <Commands/TotalAutonomous.h>
+#include "Utilities/NetworkTablesInterface.h"
+#include "Commands/TotalAutonomous.h"
 #include "CommandBase.h"
 
 class Robot: public frc::IterativeRobot {
 public:
 	void RobotInit() override {
-		//chooser.AddDefault("Default Auto", new ExampleCommand());
-		// chooser.AddObject("My Auto", new MyAutoCommand());
+		//chooser.AddDefault("Default Auto", new TotalAutonomous());
+		//chooser.AddObject("My Auto", new MyAutoCommand());
+		autonomousCommand = new TotalAutonomous();
 		CommandBase::initialize();
 		frc::SmartDashboard::PutData("Auto Modes", &chooser);
 	}
@@ -44,17 +46,18 @@ public:
 	 * to the if-else structure below with additional strings & commands.
 	 */
 	void AutonomousInit() override {
-		/* std::string autoSelected = frc::SmartDashboard::GetString("Auto Selector", "Default");
-		if (autoSelected == "My Auto") {
-			autonomousCommand.reset(new MyAutoCommand());
-		}
-		else {
-			autonomousCommand.reset(new ExampleCommand());
-		} */
+		//std::string autoSelected = frc::SmartDashboard::GetString("Auto Selector", "Default");
+		//if (autoSelected == "My Auto") {
+		//	autonomousCommand.reset(new MyAutoCommand());
+		//}
+		//else {
+			//autonomousCommand.reset(new ExampleCommand());
+		//}
 
-		autonomousCommand.reset(chooser.GetSelected());
-
-		if (autonomousCommand.get() != nullptr) {
+		//autonomousCommand.reset(chooser.GetSelected());
+		CommandBase::drive->Enable();
+		CommandBase::drive->SetAbsoluteTolerance(0.05);
+		if (autonomousCommand != nullptr) {
 			autonomousCommand->Start();
 		}
 	}
@@ -68,13 +71,21 @@ public:
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+
+
+
 		if (autonomousCommand != nullptr) {
 			autonomousCommand->Cancel();
 		}
+		CommandBase::drive->Disable();
 	}
 
 	void TeleopPeriodic() override {
 		frc::Scheduler::GetInstance()->Run();
+		frc::SmartDashboard::PutNumber("azimuth",
+						NetworkTablesInterface::getAzimuth());
+		frc::SmartDashboard::PutNumber("type",
+						NetworkTablesInterface::getPosition());
 	}
 
 	void TestPeriodic() override {
@@ -82,7 +93,7 @@ public:
 	}
 
 private:
-	TotalAutonomous* autonomousCommand;
+	CommandGroup* autonomousCommand;
 	frc::SendableChooser<frc::Command*> chooser;
 };
 
