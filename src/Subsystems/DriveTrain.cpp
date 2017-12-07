@@ -10,12 +10,11 @@
 
 DriveTrain::DriveTrain() : PIDSubsystem("DriveTrain",1.0,0,0), left(new CANTalon(DRIVE_MOTOR_LEFT)),
 right(new CANTalon(DRIVE_MOTOR_RIGHT)), mult(1.0), ticksToDistance(114), testDrive(new RobotDrive(left, right)),
-encoderLeft(new Encoder(0,1)),
-    encoderRight(new Encoder(2,3))//random channels, change if necessary
+gyro(new ADXRS450_Gyro())//random channels, change if necessary
 //make our own subclasses to inherit these functions!
 {
-	encoderLeft->SetDistancePerPulse(1.0);
-	encoderRight->SetDistancePerPulse(1.0);
+	gyro->Reset();
+	gyro->Calibrate();
 }
 
 DriveTrain::~DriveTrain()
@@ -23,6 +22,7 @@ DriveTrain::~DriveTrain()
 	delete testDrive;
 	delete left;
 	delete right;
+	delete gyro;
 }
 
 void DriveTrain::reverseDrive()
@@ -92,11 +92,11 @@ double DriveTrain::getRate()
 {
     // Average of both encoder rates (must negate to get proper direction)
     // TODO: test to see if negation is necessary
-    return
-    (
-        (double) ((encoderLeft->GetRate()) / ticksToDistance) -
-        (double) ((encoderRight->GetRate()) / ticksToDistance)
-    ) / 2.0;
+  //  return
+   // (
+       // (double) ((encoderLeft->GetRate()) / ticksToDistance) -
+        //(double) ((encoderRight->GetRate()) / ticksToDistance)
+    //) / 2.0;
 
 }
 
@@ -105,22 +105,23 @@ double DriveTrain::getLeftEncoderDistance()
 	//TODO negate this and the right one below
 	//return this->left->GetPosition();
 
-	return -this->encoderLeft->GetDistance();
+	//return -this->encoderLeft->GetDistance();
 }
 
 double DriveTrain::getRightEncoderDistance()
 {
-	return this->encoderRight->GetDistance();
+	//return this->encoderRight->GetDistance();
 }
 
 double DriveTrain::ReturnPIDInput()
 {
     // Average of both encoders (must negate to get proper direction)
-    return
+  /*  return
     (
         (double) ((encoderLeft->Get()) / ticksToDistance) -
         (double) ((encoderRight->Get()) / ticksToDistance)
     ) / 2.0;
+    */
 }
 
 void DriveTrain::UsePIDOutput(double output)

@@ -4,6 +4,10 @@
 #include "../CommandBase.h"
 
 class DrivePID : public CommandBase {
+private:
+	PIDController* distancePID;
+	PIDController* anglePID;
+
 public:
 	DrivePID();
 	void Initialize();

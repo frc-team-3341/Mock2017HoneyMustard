@@ -31,8 +31,9 @@ private:
 	float mult;
 	int ticksToDistance;
 	RobotDrive* testDrive;
-	Encoder* encoderLeft;
-	Encoder* encoderRight;
+	//Encoder* encoderLeft;
+	//Encoder* encoderRight;
+	ADXRS450_Gyro* gyro;
 };
 
 #endif

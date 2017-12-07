@@ -1,13 +1,15 @@
 #include "DrivePID.h"
 
-DrivePID::DrivePID() {
+DrivePID::DrivePID() : distancePID(new PIDController(1, 0, 0, , Output, Period))
+) {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
 	Requires(drive);
 }
 
 // Called just before this Command runs the first time
-void DrivePID::Initialize() {
+void DrivePID::Initialize()
+{
 
 }
 
