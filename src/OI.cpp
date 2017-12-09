@@ -1,5 +1,6 @@
 #include <WPILib.h>
 #include "OI.h"
+#include "Commands/MoveArmHorizontal.h"
 using namespace frc;
 
 OI::OI() :
@@ -8,6 +9,9 @@ OI::OI() :
 {
 	pushArm = new JoystickButton(logitech,3); //not actual port, temp
 	pullArm = new JoystickButton(logitech,4); //not actual port, temp
+
+	pushArm->WhenPressed(new MoveArmHorizontal(10));
+	pullArm->WhenPressed(new MoveArmHorizontal(-10));
 }
 double OI::getDriveStickLeft()
 {

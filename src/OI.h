@@ -4,6 +4,7 @@
 #include "RobotMap.h"
 #include "WPILib.h"
 
+
 class OI {
 private:
 	Joystick* logitech;

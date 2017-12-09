@@ -25,6 +25,8 @@ public:
 	double getLeftEncoderDistance();
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
+	ADXRS450_Gyro* getGyro();
+	Ultrasonic* getUltra();
 private:
 	CANTalon* left;
 	CANTalon* right;
@@ -34,6 +36,7 @@ private:
 	//Encoder* encoderLeft;
 	//Encoder* encoderRight;
 	ADXRS450_Gyro* gyro;
+	Ultrasonic* ultra;
 };
 
 #endif

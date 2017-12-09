@@ -1,37 +1,38 @@
-#include "MoveArmHorizontal.h"
+#include "Turn.h"
 
-MoveArmHorizontal::MoveArmHorizontal(double move)
+Turn::Turn(double angle)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
-	Requires(arm);
-	moveValue = move;
+	Requires(drive);
+	drive->SetSetpoint(angle);
+	//drive->resetEncoders();
 }
 
 // Called just before this Command runs the first time
-void MoveArmHorizontal::Initialize()
+void Turn::Initialize()
 {
-
+	drive->Enable();
 }
 
 // Called repeatedly when this Command is scheduled to run
-void MoveArmHorizontal::Execute()
+void Turn::Execute()
 {
-	arm->moveUpAndDown(moveValue);
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool MoveArmHorizontal::IsFinished() {
+bool Turn::IsFinished() {
 	return false;
 }
 
 // Called once after isFinished returns true
-void MoveArmHorizontal::End() {
+void Turn::End() {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void MoveArmHorizontal::Interrupted() {
+void Turn::Interrupted() {
 
 }
