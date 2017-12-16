@@ -10,14 +10,14 @@
 #include <iostream>
 
 Arm::Arm() : Subsystem("Arm"), arm(0), armHeight(0), out(false), verticalArm(new CANTalon(ARM_VERTICAL)),
-horizontalArm(new CANTalon(ARM_HORIZONTAL))
+horizontalArm(new CANTalon(ARM_HORIZONTAL)), actuator(0)
 {
-
+	actuator->Set(frc::Relay::kOn);
 }
 
 void Arm::InitDefaultCommand()
 {
-	SetDefaultCommand(new MoveArmVertical(0));
+	//SetDefaultCommand(new MoveArmVertical(0));
 }
 
 void Arm::moveUpAndDown(double moveValue)
@@ -31,7 +31,7 @@ void Arm::moveUpAndDown(double moveValue)
 	verticalArm->Set(moveValue);
 }
 
-void Arm::pushArmHorizontal()
+void Arm::pushArmForward()
 {
 	// if button is being pressed down
 	// then push out arm
@@ -40,6 +40,12 @@ void Arm::pushArmHorizontal()
 	// else keep arm in
 	// basically leave it static
 
+	actuator->Set(frc::Relay::kForward);
+}
+
+void Arm::pullArmBack()
+{
+	actuator->Set(frc::Relay::kReverse);
 }
 
 
