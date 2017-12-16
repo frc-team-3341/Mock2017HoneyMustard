@@ -25,7 +25,6 @@ void Turn::Initialize()
 void Turn::Execute()
 {
 
-	drive->resetEncoders();
 
 	currentAngle = drive->getGyro()->GetAngle();
 	std::cout << "Gyro angle: " << currentAngle << std::endl;

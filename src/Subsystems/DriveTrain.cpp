@@ -10,7 +10,7 @@
 
 DriveTrain::DriveTrain() : PIDSubsystem("DriveTrain",1.0,0,0), left(new CANTalon(DRIVE_MOTOR_LEFT)),
 right(new CANTalon(DRIVE_MOTOR_RIGHT)), mult(1.0), ticksToDistance(114), testDrive(new RobotDrive(left, right)),
-gyro(new ADXRS450_Gyro()), ultra(new Ultrasonic(0, 1)), encoderLeft(2), encoderRight(3)//random channels, change if necessary
+gyro(new ADXRS450_Gyro()), ultra(new Ultrasonic(0, 1)), encoderLeft(new Encoder(0, 1)), encoderRight(new Encoder(2, 3))//, encoderRight(1)//random channels, change if necessary
 //make our own subclasses to inherit these functions!s
 {
 	gyro->Reset();

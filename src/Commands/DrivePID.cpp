@@ -36,7 +36,7 @@ void DrivePID::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool DrivePID::IsFinished()
 {
-	if(distancePID->GetError() < 2)
+	if(distancePID->GetError() < 1 || drive->getUltra()->GetRangeInches() < 1)
 		return true;
 	else
 		return false;
