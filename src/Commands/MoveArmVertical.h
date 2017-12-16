@@ -5,12 +5,15 @@
 
 class MoveArmVertical : public CommandBase {
 public:
-	MoveArmVertical();
+	MoveArmVertical(int power);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
+
+private:
+	int movePower;
 };
 
 #endif  // MoveArm_H

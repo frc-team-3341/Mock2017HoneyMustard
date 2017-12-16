@@ -17,7 +17,7 @@ horizontalArm(new CANTalon(ARM_HORIZONTAL))
 
 void Arm::InitDefaultCommand()
 {
-	SetDefaultCommand(new MoveArmVertical());
+	SetDefaultCommand(new MoveArmVertical(0));
 }
 
 void Arm::moveUpAndDown(double moveValue)
@@ -31,7 +31,7 @@ void Arm::moveUpAndDown(double moveValue)
 	verticalArm->Set(moveValue);
 }
 
-void Arm::pushArmHorizontal(double moveValue)
+void Arm::pushArmHorizontal()
 {
 	// if button is being pressed down
 	// then push out arm
@@ -39,7 +39,7 @@ void Arm::pushArmHorizontal(double moveValue)
 	// then pull arm back in
 	// else keep arm in
 	// basically leave it static
-	horizontalArm->Set(moveValue);
+
 }
 
 

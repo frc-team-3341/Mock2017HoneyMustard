@@ -1,6 +1,6 @@
 #include "MoveArmVertical.h"
 
-MoveArmVertical::MoveArmVertical()
+MoveArmVertical::MoveArmVertical(int power) : movePower(power)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
@@ -16,7 +16,7 @@ void MoveArmVertical::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void MoveArmVertical::Execute()
 {
-	arm->moveUpAndDown(oi->getArm()->GetY());
+	arm->moveUpAndDown(movePower);
 	// double ArmAdjusted = ArmFun(0.3, 0, ArmVal);
 	//drive->tankDrive(ArmAdjusted);
 }

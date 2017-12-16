@@ -19,11 +19,12 @@ private:
 	CANTalon* verticalArm;
 	CANTalon* horizontalArm;
 
+
 public:
 	Arm();
 	void InitDefaultCommand();
 	void moveUpAndDown(double moveValue);
-	void pushArmHorizontal(double moveValue);
+	void pushArmHorizontal();
 };
 
 #endif  // Arm_H

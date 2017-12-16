@@ -14,7 +14,8 @@ TotalAutonomous::TotalAutonomous() {
 	 * has all the functions you need to set the necessary values (such as setpoint, proportion
 	 * integral derivative constants, etc.)
 	 */
-
+	std::cout << "help" << std::endl;
+	AddSequential(new Turn(90));
 
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
