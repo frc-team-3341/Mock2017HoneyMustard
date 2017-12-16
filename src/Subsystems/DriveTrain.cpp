@@ -143,7 +143,7 @@ Encoder* DriveTrain::getEncoderLeft()
 	return encoderLeft;
 }
 
-Encoder* DriveTrain::getEncoderLeft()
+Encoder* DriveTrain::getEncoderRight()
 {
 	return encoderRight;
 }

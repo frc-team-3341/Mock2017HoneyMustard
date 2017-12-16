@@ -2,11 +2,11 @@
 #define Turn_H
 
 #include "../CommandBase.h"
-<<<<<<< HEAD
+
 #include <ADXRS450_Gyro.h>
-=======
+
 #include "../Utilities/WVPIDController.h"
->>>>>>> a2014a6498bfa04a62f3dd07e882e332a031bd2f
+
 
 class Turn : public CommandBase {
 private:
@@ -21,9 +21,7 @@ public:
 	bool IsFinished();
 	void End();
 	void Interrupted();
-private:
-	double angle;
-	double getAngle;
+
 };
 
 #endif  // Turn_H
