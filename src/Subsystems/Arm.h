@@ -9,7 +9,7 @@
 #include <Commands/Subsystem.h>
 #include <WPILIB.h>
 #include "CANTalon.h"
-
+//#include <Pneumatic.h>
 class Arm : public Subsystem
 {
 private:
@@ -18,13 +18,14 @@ private:
 	bool out; // should be false because arm is static when out is true arm is out
 	CANTalon* verticalArm;
 	CANTalon* horizontalArm;
-
+	Relay* actuator;
 
 public:
 	Arm();
 	void InitDefaultCommand();
 	void moveUpAndDown(double moveValue);
-	void pushArmHorizontal();
+	void pushArmForward();
+	void pullArmBack();
 };
 
 #endif  // Arm_H

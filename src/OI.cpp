@@ -1,6 +1,7 @@
 #include <WPILib.h>
 #include "OI.h"
 #include "Commands/MoveArmHorizontal.h"
+#include "Commands/MoveArmVertical.h"
 using namespace frc;
 
 OI::OI() :
@@ -33,5 +34,5 @@ OI::~OI() {
 	//delete LeftStick;
 	//delete RightStick;
 	delete logitech;
-	delete Arm;
+	//delete Arm;
 }

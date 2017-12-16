@@ -34,7 +34,7 @@ bool FindAndPush::IsFinished() {
 void FindAndPush::End()
 {
 
-	arm->pushArmHorizontal(10); //TODO: find value through testing
+	arm->pushArmForward(); //TODO: find value through testing
 }
 
 // Called when another command which requires one or more of the same

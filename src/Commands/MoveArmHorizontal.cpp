@@ -17,7 +17,7 @@ void MoveArmHorizontal::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void MoveArmHorizontal::Execute()
 {
-	arm->moveUpAndDown(moveValue);
+	arm->pushArmForward();
 }
 
 // Make this return true when this Command no longer needs to run execute()
