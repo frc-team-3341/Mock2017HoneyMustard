@@ -5,13 +5,15 @@ using namespace frc;
 
 OI::OI() :
 		//LeftStick(new Joystick(0)), RightStick(new Joystick(1))
-				logitech(new Joystick(0)), Arm(new Joystick(2))
+				logitech(new Joystick(0))//, Arm(new Joystick(2))
 {
-	pushArm = new JoystickButton(logitech,3); //not actual port, temp
-	pullArm = new JoystickButton(logitech,4); //not actual port, temp
+	pushArmUp = new JoystickButton(logitech, 6); //not actual port, temp
+	pullArmDown = new JoystickButton(logitech, 8); //not actual port, temp
 
-	pushArm->WhenPressed(new MoveArmHorizontal(10));
-	pullArm->WhenPressed(new MoveArmHorizontal(-10));
+	pushActuator = new JoystickButton(logitech, 7);
+
+	pushArmUp->WhenPressed(new MoveArmVertical(5));
+	pullArmDown->WhenPressed(new MoveArmVertical(-5));
 }
 double OI::getDriveStickLeft()
 {
@@ -23,9 +25,9 @@ double OI::getDriveStickRight()
 	return -logitech->GetRawAxis(3);
 }
 
-Joystick* OI::getArm() {
-	return Arm;
-}
+//Joystick* OI::getArm() {
+
+//}
 
 OI::~OI() {
 	//delete LeftStick;

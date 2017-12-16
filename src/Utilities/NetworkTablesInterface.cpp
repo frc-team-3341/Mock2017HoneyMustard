@@ -18,7 +18,7 @@ NetworkTablesInterface::~NetworkTablesInterface() {
 }*/
 
 
-double NetworkTablesInterface::getPosition()
+double NetworkTablesInterface::getPosition() //-1 not found. 0 verical. 1 horizontal. 2 active
 {
 	return NetworkTable::GetTable("cv")->GetNumber("type", -1.0);
 }

@@ -12,9 +12,9 @@
 
 // For example to map the left and right motors, you could define the
 // following variables to use with your drivetrain subsystem.
-const double DRIVE_MOTOR_LEFT = 3;
-const double DRIVE_MOTOR_RIGHT = 4;
-const double ARM_VERTICAL = 2;
+const double DRIVE_MOTOR_LEFT = 1;
+const double DRIVE_MOTOR_RIGHT = 2;
+const double ARM_VERTICAL = 4;
 const double ARM_HORIZONTAL = 3;
 
 #endif

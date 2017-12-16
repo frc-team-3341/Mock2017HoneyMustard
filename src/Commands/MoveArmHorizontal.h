@@ -7,10 +7,10 @@
 class MoveArmHorizontal : public CommandBase {
 
 private:
-	double moveValue; //determined through testing
+	 //determined through testing
 
 public:
-	MoveArmHorizontal(double move);
+	MoveArmHorizontal();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

@@ -1,11 +1,11 @@
 #include "MoveArmHorizontal.h"
 
-MoveArmHorizontal::MoveArmHorizontal(double move)
+MoveArmHorizontal::MoveArmHorizontal()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
 	Requires(arm);
-	moveValue = move;
+
 }
 
 // Called just before this Command runs the first time

@@ -9,6 +9,7 @@
 #include <SmartDashboard/SmartDashboard.h>
 #include "Utilities/NetworkTablesInterface.h"
 #include "Commands/TotalAutonomous.h"
+#include "Commands/Turn.h"
 #include "CommandBase.h"
 
 class Robot: public frc::IterativeRobot {
@@ -16,9 +17,10 @@ public:
 	void RobotInit() override {
 		//chooser.AddDefault("Default Auto", new TotalAutonomous());
 		//chooser.AddObject("My Auto", new MyAutoCommand());
-		autonomousCommand = new TotalAutonomous();
+
 		CommandBase::initialize();
 		frc::SmartDashboard::PutData("Auto Modes", &chooser);
+		autonomousCommand = new TotalAutonomous();
 	}
 
 	/**
@@ -55,9 +57,10 @@ public:
 		//}
 
 		//autonomousCommand.reset(chooser.GetSelected());
-		CommandBase::drive->Enable();
-		CommandBase::drive->SetAbsoluteTolerance(0.05);
+		//CommandBase::drive->Enable();
+		//CommandBase::drive->SetAbsoluteTolerance(0.05);
 		if (autonomousCommand != nullptr) {
+			std::cout<<"not a null"<<std::endl;
 			autonomousCommand->Start();
 		}
 	}
