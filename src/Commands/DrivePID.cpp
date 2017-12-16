@@ -1,10 +1,11 @@
 #include "DrivePID.h"
 
-DrivePID::DrivePID() : currentAngle(0), driveAngle(0)
+DrivePID::DrivePID() :  /*distancePID(0),*/ currentAngle(0), driveAngle(0), currentDistance(0), drivePower(0)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
 	Requires(drive);
+	distancePID = nullptr;
 	anglePID = nullptr;
 }
 
@@ -12,8 +13,11 @@ DrivePID::DrivePID() : currentAngle(0), driveAngle(0)
 void DrivePID::Initialize()
 {
 	anglePID = new WVPIDController(1, 0, 0, 0, false);
+	distancePID = new WVPIDController(1, 0, 0, 10, false);
 	drive->getGyro()->Reset();
 	drive->getGyro()->Calibrate();
+	drive->getEncoderLeft()->Reset();
+	drive->getEncoderRight()->Reset();
 	drive->getUltra()->SetAutomaticMode(true);
 }
 
@@ -23,13 +27,16 @@ void DrivePID::Execute()
 	currentAngle = drive->getGyro()->GetAngle();
 	driveAngle = anglePID->Tick(currentAngle);
 
-	drive->arcadeDrive(10, driveAngle);
+	currentDistance = drive->ReturnPIDInput();
+	drivePower = distancePID->Tick(currentDistance);
+
+	drive->arcadeDrive(drivePower, driveAngle);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool DrivePID::IsFinished()
 {
-	if(drive->getUltra()->GetRangeInches() < 2)
+	if(distancePID->GetError() < 2)
 		return true;
 	else
 		return false;
@@ -37,7 +44,7 @@ bool DrivePID::IsFinished()
 
 // Called once after isFinished returns true
 void DrivePID::End() {
-
+	drive->arcadeDrive(0, 0);
 }
 
 // Called when another command which requires one or more of the same

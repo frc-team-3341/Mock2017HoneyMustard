@@ -6,13 +6,14 @@
 
 class DrivePID : public CommandBase {
 private:
-	//PIDController* distancePID;
-	//PIDController* anglePID;
+	// PIDController* distancePID;
+	// PIDController* anglePID;
+	WVPIDController* distancePID;
 	WVPIDController* anglePID;
 	double currentAngle;
 	double driveAngle;
-	//double currentDistance;
-	//double drivePower;
+	double currentDistance;
+	double drivePower;
 public:
 	DrivePID();
 	void Initialize();
