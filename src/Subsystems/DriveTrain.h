@@ -1,6 +1,6 @@
 #ifndef DriveTrain_H
 #define DriveTrain_H
-#include <CANTalon.h>
+#include <ctrlib/CANTalon.h>
 #include <WPILib.h>
 #include "Commands/Subsystem.h"
 
@@ -27,14 +27,16 @@ public:
 	void UsePIDOutput(double output);
 	ADXRS450_Gyro* getGyro();
 	Ultrasonic* getUltra();
+	Encoder* getEncoderLeft();
+	Encoder* getEncoderRight();
 private:
 	CANTalon* left;
 	CANTalon* right;
 	float mult;
 	int ticksToDistance;
 	RobotDrive* testDrive;
-	//Encoder* encoderLeft;
-	//Encoder* encoderRight;
+	Encoder* encoderLeft;
+	Encoder* encoderRight;
 	ADXRS450_Gyro* gyro;
 	Ultrasonic* ultra;
 };

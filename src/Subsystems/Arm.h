@@ -8,7 +8,7 @@
 
 #include <Commands/Subsystem.h>
 #include <WPILIB.h>
-#include "CANTalon.h"
+#include "ctrlib/CANTalon.h"
 //#include <Pneumatic.h>
 class Arm : public Subsystem
 {

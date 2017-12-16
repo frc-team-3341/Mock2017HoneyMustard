@@ -10,8 +10,8 @@
 
 DriveTrain::DriveTrain() : PIDSubsystem("DriveTrain",1.0,0,0), left(new CANTalon(DRIVE_MOTOR_LEFT)),
 right(new CANTalon(DRIVE_MOTOR_RIGHT)), mult(1.0), ticksToDistance(114), testDrive(new RobotDrive(left, right)),
-gyro(new ADXRS450_Gyro()), ultra(new Ultrasonic(0, 1))//random channels, change if necessary
-//make our own subclasses to inherit these functions!
+gyro(new ADXRS450_Gyro()), ultra(new Ultrasonic(0, 1)), encoderLeft(new Encoder(0, 1)), encoderRight(new Encoder(2, 3))//, encoderRight(1)//random channels, change if necessary
+//make our own subclasses to inherit these functions!s
 {
 	gyro->Reset();
 	//gyro->Calibrate();
@@ -116,12 +116,11 @@ double DriveTrain::getRightEncoderDistance()
 double DriveTrain::ReturnPIDInput()
 {
     // Average of both encoders (must negate to get proper direction)
-  /*  return
+	return
     (
-        (double) ((encoderLeft->Get()) / ticksToDistance) -
-        (double) ((encoderRight->Get()) / ticksToDistance)
+        (double) ((encoderLeft->GetDistance()) / ticksToDistance) -
+        (double) ((encoderRight->GetDistance()) / ticksToDistance)
     ) / 2.0;
-    */
 }
 
 void DriveTrain::UsePIDOutput(double output)
@@ -137,4 +136,14 @@ ADXRS450_Gyro* DriveTrain::getGyro()
 Ultrasonic* DriveTrain::getUltra()
 {
 	return ultra;
+}
+
+Encoder* DriveTrain::getEncoderLeft()
+{
+	return encoderLeft;
+}
+
+Encoder* DriveTrain::getEncoderRight()
+{
+	return encoderRight;
 }

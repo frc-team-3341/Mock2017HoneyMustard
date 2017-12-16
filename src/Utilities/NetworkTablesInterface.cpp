@@ -26,5 +26,4 @@ double NetworkTablesInterface::getPosition() //-1 not found. 0 verical. 1 horizo
 double NetworkTablesInterface::getAzimuth()
 {
 	return NetworkTable::GetTable("cv")->GetNumber("azimuth", 0);
-
 }
