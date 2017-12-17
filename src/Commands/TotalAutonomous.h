@@ -3,6 +3,8 @@
 
 #include <Commands/CommandGroup.h>
 #include "Turn.h"
+#include "ShootArm.h"
+#include "DrivePID.h"
 
 class TotalAutonomous : public CommandGroup {
 

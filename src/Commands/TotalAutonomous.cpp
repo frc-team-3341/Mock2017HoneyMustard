@@ -15,6 +15,8 @@ TotalAutonomous::TotalAutonomous() {
 	 * integral derivative constants, etc.)
 	 */
 	std::cout << "help" << std::endl;
+	AddSequential(new DrivePID());
+	AddSequential(new ShootArm());
 	AddSequential(new Turn(90));
 
 	// Add Commands here:
